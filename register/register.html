@@ -1,39 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Registration Page</title>
-    {% comment %} <link rel="stylesheet" type="text/css" href="styles.css"> {% endcomment %}
-    <link rel="stylesheet" href="register.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <!-- style sheets -->
+   <link rel="stylesheet" href="./register.css">
+
+    <!-- bootstrap-stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Validation Script  -->
+    <script src="./validation.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <form action="regAction.php" method="post" class="box">
-                        <h1 style="color:black;">Registration</h1>
-                        <p style="color:black;"> Please enter your informations!</p>
-                        <input type="text" name="fname" placeholder="Enter your first Name">
-                        <input type="text" name="lname" placeholder="Enter your last Name">
-                        <input type="text" name="uname" placeholder="Create an username">
-                        <input type="text" name="email" placeholder="Enter an E-mail">
-                        <input type="password" name="pass" placeholder="Create password">
-                        <input type="password" name="conpass" placeholder="Confirm Password">
-                        <input type="submit" name="" value="Register">
-                        <p style="color: black;">Already have an account?<a href="login/login.html">Login</a></p>
-                    </form>
+    <!-- Navbar Section  -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">ShMart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto"> <!-- Use ms-auto to push items to the right -->
+                    <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    <a class="nav-link active" href="../products_list/products_list.html">Products</a>
+                    <a class="nav-link active" href="../services/service.html">Services</a>
+                    
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link active" href="#">Contact Us</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="true">
+                            Others
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./pages/ecommerce.html">Ecommerce</a></li>
+                            <li><a class="dropdown-item" href="./pages/parts.html">Parts Section</a></li>
+                            <li><a class="dropdown-item" href="./pages/clients.html">Our Clients</a></li>
+                            <li><a class="dropdown-item" href="./pages/about.html">About US</a></li>
+                        </ul>
+                    </li>
+                    <a class="nav-link active" href="../login/login.html" aria-disabled="true">Login</a>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Registration Form Start  -->
+
+    <section class="container my-5 p-0">
+        <div class="row">
+            <div class="container col-md-4 col-lg-4 col-12 mt-lg-5">
+                <img src="../images/registration.svg" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-7 col-lg-7 col-12 pe-5">
+                <form class="pt-3 mx-auto">
+                    <h2 class="text-center author">Registration Here</h2>
+                    <div class="mb-1">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="iname">
+                        <span id="ename"></span>
+                    </div>
+                    <div class="mb-1">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" id="iemail">
+                        <span id="eemail"></span>
+                    </div>
+                    <div class="mb-1">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="text" name="mob" class="form-control" id="imob">
+                        <span id="emob"></span>
+                    </div>
+                    <div class="mb-1">
+                        <label for="pass" class="form-label">Password</label>
+                        <input type="password" name="pass" class="form-control" id="ipass">
+                        <span id="epass"></span>
+                    </div>
+                    <div class="mb-1">
+                        <label for="cpass" class="form-label">Confirm Password</label>
+                        <input type="password" name="cpass" class="form-control" id="icpass">
+                        <span id="ecpass"></span>
+                    </div>
+                    <div class="mb-1">
+                        <h6 class="reg">Already User? <a href="../login/login.html">Please Login</a> </h6>
+                    </div>
+                    <button type="submit" class="btn text-white">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light text-center py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2023 Your Shahed Mart. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+          
 </body>
 
 </html>
